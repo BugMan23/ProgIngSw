@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">CaesarzonApplication</string>
+    <string name="userInfo">User info</string>
+    <string name="home">Home</string>
+    <string name="friendlist">Friendlist</string>
+    <string name="shopcart">ShopCart</string>
+    <string name="productpage">ProductPage</string>
+    <string name="wishlists">Wishlists</string>
+    <string name="notifications">NotificationsButton</string>
+    <string name="userpage">UserPage</string>
+    <string name="searchUser">searchUser</string>
+    <string name="reports">reports</string>
+    <string name="supportRequest">supportRequest</string>
+    <string name="addProduct">addProduct</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
