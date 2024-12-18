@@ -408,7 +408,7 @@ class ShoppingCartViewModel(): ViewModel() {
     ){
         viewModelScope.launch {
             try {
-                doPurchase(addressID, cardID, payPal, context, navigateToSuccess)
+                doPurchase(addressID, cardID, payPal, context)
             }catch (e: Exception){
                 e.printStackTrace()
                 println("Errore durante la chiamata: ${e.message}")
@@ -457,8 +457,6 @@ class ShoppingCartViewModel(): ViewModel() {
                                 }
                                 .show()
                         }
-                }else {
-                        navigateToSuccess()
                     }
                 }
 

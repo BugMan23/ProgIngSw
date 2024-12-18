@@ -95,8 +95,8 @@ fun AddProductScreen(navController: NavController,adminProductViewModel: AdminPr
 
     if(!onChanges){
         id= productViewModel.selectedProduct.value?.product?.id.toString()
-       productName = productViewModel.selectedProduct.value?.product?.name.toString()
-       description = productViewModel.selectedProduct.value?.product?.description.toString()
+        productName = productViewModel.selectedProduct.value?.product?.name.toString()
+        description = productViewModel.selectedProduct.value?.product?.description.toString()
         brand = productViewModel.selectedProduct.value?.product?.brand.toString()
         price = productViewModel.selectedProduct.value?.product?.price.toString()
         discount = productViewModel.selectedProduct.value?.product?.discount.toString()
@@ -402,10 +402,14 @@ fun AddProductScreen(navController: NavController,adminProductViewModel: AdminPr
                                     sport = selectedSport,
                                     availabilities = availability
                                 ),
-                                imageBitmap!!
+                                imageBitmap!!,
+                                context = context, // Passing context here
+                                onContinueShopping = {
+                                    navController.navigate("home")
+                                }
                             )
                             showSuccessMessage = true
-                        }else{
+                        } else {
                             adminProductViewModel.modifyProduct(
                                 SendProductDTO(
                                     id = id,
@@ -421,9 +425,8 @@ fun AddProductScreen(navController: NavController,adminProductViewModel: AdminPr
                                     availabilities = availability
                                 ),
                                 imageBitmap!!,
-                                context,
-
-                                onContinueShopping ={
+                                context = context, // Passing context here
+                                onContinueShopping = {
                                     navController.navigate("home")
                                 }
                             )
@@ -433,6 +436,7 @@ fun AddProductScreen(navController: NavController,adminProductViewModel: AdminPr
                 ) {
                     Text(text = "Aggiungi prodotto")
                 }
+
 
             }
         }

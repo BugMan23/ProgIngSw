@@ -37,7 +37,7 @@ class AdminProductViewModel {
     val productId: StateFlow<String> = _productId
 
 
-    fun modifyProduct(productDTO: SendProductDTO, image: ImageBitmap){
+    fun modifyProduct(productDTO: SendProductDTO, image: ImageBitmap, context: Context, onContinueShopping: () -> Unit){
         val manageURL = URL("http://25.49.50.144:8090/product-api/product?new=false")
         val JSON = "application/json; charset=utf-8".toMediaType()
         val json = gson.toJson(productDTO)
@@ -58,7 +58,7 @@ class AdminProductViewModel {
                 println("Codice di stato: ${response.code}")
                 println("Messaggio di risposta: ${response.message}")
 
-                postProductImage(responseBody.toString(), image)
+                postProductImage(responseBody.toString(), image, context, onContinueShopping)
             }
             catch (e: Exception){
                 e.printStackTrace()
@@ -88,7 +88,7 @@ class AdminProductViewModel {
                 println("Codice di stato: ${response.code}")
                 println("Messaggio di risposta: ${response.message}")
 
-                postProductImage(responseBody.toString(), image)
+                postProductImage(responseBody.toString(), image, context, onContinueShopping)
 
             }
             catch (e: Exception){
